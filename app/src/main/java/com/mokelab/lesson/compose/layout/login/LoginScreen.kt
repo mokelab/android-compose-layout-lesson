@@ -2,6 +2,7 @@ package com.mokelab.lesson.compose.layout.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -26,6 +27,7 @@ import com.mokelab.lesson.compose.layout.ui.theme.ComposeLayoutLessonTheme
 @Composable
 fun LoginScreen(
     back: () -> Unit,
+    toAnswer: () -> Unit,
     toExample: () -> Unit,
 ) {
     Scaffold(
@@ -49,17 +51,29 @@ fun LoginScreen(
                 stringResource(R.string.login_description),
                 modifier = Modifier.padding(all = 16.dp)
             )
-            Button(
-                onClick = toExample,
-                modifier = Modifier.padding(horizontal = 16.dp)
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
             ) {
-                Text(stringResource(R.string.example))
+                Button(
+                    onClick = toAnswer,
+                ) {
+                    Text(stringResource(R.string.your_answer))
+                }
+
+                Button(
+                    onClick = toExample,
+                    modifier = Modifier.padding(start = 32.dp)
+                ) {
+                    Text(stringResource(R.string.example))
+                }
+
             }
 
             Image(
                 painter = painterResource(R.drawable.login),
                 contentDescription = "",
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp)
                     .padding(top = 32.dp)
             )
@@ -73,6 +87,7 @@ private fun PreviewLoginScreen() {
     ComposeLayoutLessonTheme {
         LoginScreen(
             back = {},
+            toAnswer = {},
             toExample = {},
         )
     }

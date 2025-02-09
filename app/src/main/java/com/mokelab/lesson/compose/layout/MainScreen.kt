@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mokelab.lesson.compose.layout.applist.AppListExampleScreen
 import com.mokelab.lesson.compose.layout.applist.AppListScreen
+import com.mokelab.lesson.compose.layout.login.LoginAnswerScreen
 import com.mokelab.lesson.compose.layout.login.LoginExampleScreen
 import com.mokelab.lesson.compose.layout.login.LoginScreen
 import com.mokelab.lesson.compose.layout.top.TopScreen
@@ -25,8 +26,12 @@ fun MainScreen() {
         composable<Login> {
             LoginScreen(
                 back = { navController.popBackStack() },
+                toAnswer = { navController.navigate(LoginAnswer) },
                 toExample = { navController.navigate(LoginExample) }
             )
+        }
+        composable<LoginAnswer> {
+            LoginAnswerScreen(back = { navController.popBackStack() })
         }
         composable<LoginExample> {
             LoginExampleScreen(back = { navController.popBackStack() })
@@ -48,6 +53,9 @@ data object Top
 
 @Serializable
 data object Login
+
+@Serializable
+data object LoginAnswer
 
 @Serializable
 data object LoginExample
