@@ -52,7 +52,7 @@ fun AppListScreen(
                 .verticalScroll(scrollState),
         ) {
             Text(
-                stringResource(R.string.login_description),
+                stringResource(R.string.applist_description),
                 modifier = Modifier.padding(all = 16.dp)
             )
             Button(
