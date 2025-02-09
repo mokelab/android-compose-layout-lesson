@@ -15,9 +15,11 @@ import com.mokelab.lesson.compose.layout.R
 @Composable
 fun TopScreen(
     toLogin: () -> Unit,
+    toAppList: () -> Unit,
 ) {
     val menuItems = listOf(
-        Pair(R.string.login, toLogin)
+        Pair(R.string.login, toLogin),
+        Pair(R.string.applist, toAppList),
     )
     Scaffold { innerPadding ->
         LazyColumn(

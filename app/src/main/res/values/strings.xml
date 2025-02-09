@@ -3,4 +3,5 @@
     <string name="login">Login</string>
     <string name="login_description">Let\'s make login screen (email + password)</string>
     <string name="example">Example</string>
+    <string name="applist">App list</string>
 </resources>
