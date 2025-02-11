@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -16,10 +17,12 @@ import com.mokelab.lesson.compose.layout.R
 fun TopScreen(
     toLogin: () -> Unit,
     toAppList: () -> Unit,
+    toLoading: () -> Unit,
 ) {
     val menuItems = listOf(
         Pair(R.string.login, toLogin),
         Pair(R.string.applist, toAppList),
+        Pair(R.string.loading, toLoading),
     )
     Scaffold { innerPadding ->
         LazyColumn(
@@ -35,6 +38,7 @@ fun TopScreen(
                         item.second()
                     }
                 )
+                HorizontalDivider()
             }
         }
     }

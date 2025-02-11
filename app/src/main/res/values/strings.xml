@@ -6,4 +6,6 @@
     <string name="applist">App list</string>
     <string name="applist_description">Let\'s implement AppItem()</string>
     <string name="your_answer">Your answer</string>
+    <string name="loading">Loading</string>
+    <string name="loading_description">Let\'s make loading screen(put Progress at the center of screen)</string>
 </resources>

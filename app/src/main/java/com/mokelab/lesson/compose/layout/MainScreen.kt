@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mokelab.lesson.compose.layout.applist.appListGraph
+import com.mokelab.lesson.compose.layout.loading.loadingGraph
 import com.mokelab.lesson.compose.layout.login.loginGraph
 import com.mokelab.lesson.compose.layout.top.TopScreen
 import kotlinx.serialization.Serializable
@@ -18,10 +19,12 @@ fun MainScreen() {
             TopScreen(
                 toLogin = { navController.navigate(Login) },
                 toAppList = { navController.navigate(AppList) },
+                toLoading = { navController.navigate(Loading) },
             )
         }
         loginGraph(navController = navController)
         appListGraph(navController = navController)
+        loadingGraph(navController = navController)
     }
 }
 
@@ -33,4 +36,7 @@ data object Login
 
 @Serializable
 data object AppList
+
+@Serializable
+data object Loading
 
