@@ -14,12 +14,17 @@ fun NavGraphBuilder.appListGraph(
         composable<Top> {
             AppListScreen(
                 back = { navController.popBackStack() },
+                toAnswer = { navController.navigate(Answer) },
                 toExample = { navController.navigate(Example) }
             )
+        }
+        composable<Answer> {
+            AppListAnswerScreen(back = { navController.popBackStack() })
         }
         composable<Example> {
             AppListExampleScreen(back = { navController.popBackStack() })
         }
+
     }
 }
 

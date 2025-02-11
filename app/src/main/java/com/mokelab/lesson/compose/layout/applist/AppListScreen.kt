@@ -2,6 +2,7 @@ package com.mokelab.lesson.compose.layout.applist
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -28,6 +29,7 @@ import com.mokelab.lesson.compose.layout.ui.theme.ComposeLayoutLessonTheme
 @Composable
 fun AppListScreen(
     back: () -> Unit,
+    toAnswer: () -> Unit,
     toExample: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
@@ -55,11 +57,22 @@ fun AppListScreen(
                 stringResource(R.string.applist_description),
                 modifier = Modifier.padding(all = 16.dp)
             )
-            Button(
-                onClick = toExample,
-                modifier = Modifier.padding(horizontal = 16.dp)
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
             ) {
-                Text(stringResource(R.string.example))
+                Button(
+                    onClick = toAnswer,
+                ) {
+                    Text(stringResource(R.string.your_answer))
+                }
+
+                Button(
+                    onClick = toExample,
+                    modifier = Modifier.padding(start = 32.dp)
+                ) {
+                    Text(stringResource(R.string.example))
+                }
+
             }
 
             Image(
@@ -89,6 +102,7 @@ private fun PreviewAppListScreen() {
     ComposeLayoutLessonTheme {
         AppListScreen(
             back = {},
+            toAnswer = {},
             toExample = {},
         )
     }
